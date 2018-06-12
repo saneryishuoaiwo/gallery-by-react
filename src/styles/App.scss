@@ -1,0 +1,104 @@
+/* Base Application Styles */
+body {
+  /*color: #fff;*/
+  background-color: #ddd;
+  overflow: hidden;
+}
+
+//.index img {
+//  margin: 40px auto;
+//  border-radius: 4px;
+//  background: #fff;
+//  display: block;
+//}
+//
+//.index .notice {
+//  margin: 20px auto;
+//  padding: 15px 0;
+//  text-align: center;
+//  border: 1px solid #000;
+//  border-width: 1px 0;
+//  background: #666;
+//}
+
+.stage{
+  position: relative;
+  width: 100%;
+  height:100%;
+}
+.img-sec{
+  position: relative;
+  width: 100%;
+  height: 900px;
+  //overflow: hidden;
+  //background-color: #ddd;
+
+  //使用sass，生成css样式时将结构提到最外层
+  @at-root {
+    .img-figure{
+      position: absolute;
+      width: 320px;
+      height: 360px;
+      margin: 0;
+      padding: 40px;
+      background-color: white;
+      box-sizing: border-box;
+      transform-origin: center;
+      //overflow: hidden;
+      transition: all .5s;
+      -webkit-transform-style: preserve-3d;
+      -moz-transform-style: preserve-3d;
+      -ms-transform-style: preserve-3d;
+      -o-transform-style: preserve-3d;
+      transform-style: preserve-3d;
+
+
+      img{
+        width: 240px;
+        height: 240px;
+      }
+
+      &.is-inverse{
+
+        transform: rotateY(180deg);
+      }
+      .img-back{
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        color:#a7a0a2;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        //padding: 50px 40px;
+        overflow: auto;
+        background-color: white;
+        transform: rotateY(-180deg);
+      }
+    }
+    figcaption{
+      text-align: center;
+      .img-title{
+        margin: 20px 0 0 0;
+        color:#a7a0a2;
+        //font-size: 16px;
+      }
+
+
+    }
+  }
+
+}
+
+.controller-nav{
+  position: absolute;
+  left: 0;
+  bottom:30px;
+  z-index: 101;
+  width:100%;
+  text-align: center;
+
+}
+
