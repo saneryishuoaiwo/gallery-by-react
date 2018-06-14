@@ -2,7 +2,30 @@
 body {
   /*color: #fff;*/
   background-color: #ddd;
-  overflow: hidden;
+  padding: 0;
+  margin: 0;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  //overflow: hidden;
+}
+
+@font-face {
+  font-family: 'iconfont';
+  src: url('../fonts/Icons/iconfont.eot');
+  src: url('../fonts/Icons/iconfont.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/Icons/iconfont.woff') format('woff'),
+  url('../fonts/Icons/iconfont.ttf') format('truetype'),
+  url('../fonts/Icons/iconfont.svg#iconfont') format('svg');
+}
+
+.iconfont{
+  font-family:"iconfont" !important;
+  font-size:16px;font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 //.index img {
@@ -29,8 +52,9 @@ body {
 .img-sec{
   position: relative;
   width: 100%;
-  height: 900px;
-  //overflow: hidden;
+  height: 945px;
+  overflow: hidden;
+  perspective: 1800px;
   //background-color: #ddd;
 
   //使用sass，生成css样式时将结构提到最外层
@@ -43,14 +67,16 @@ body {
       padding: 40px;
       background-color: white;
       box-sizing: border-box;
-      transform-origin: center;
+      //border: 1px solid #ff8a82;
       //overflow: hidden;
-      transition: all .5s;
+      cursor: pointer;
+      transform-origin: 0 50% 0;
       -webkit-transform-style: preserve-3d;
       -moz-transform-style: preserve-3d;
       -ms-transform-style: preserve-3d;
       -o-transform-style: preserve-3d;
       transform-style: preserve-3d;
+      transition: transform .6s ease-in-out,left .6s ease-in-out,top .6s ease-in-out;
 
 
       img{
@@ -59,8 +85,7 @@ body {
       }
 
       &.is-inverse{
-
-        transform: rotateY(180deg);
+        transform: translate(320px) rotateY(180deg);
       }
       .img-back{
         position: absolute;
@@ -85,8 +110,6 @@ body {
         color:#a7a0a2;
         //font-size: 16px;
       }
-
-
     }
   }
 
@@ -99,6 +122,45 @@ body {
   z-index: 101;
   width:100%;
   text-align: center;
+  @at-root {
+    .controller-unit{
+      display: inline-block;
+      width: 30px;
+      height: 30px;
+      margin: 0 5px;
+      text-align: center;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color:#aaa;
+      -webkit-border-radius: 50%;
+      -moz-border-radius: 50%;
+      border-radius: 50%;
+      -webkit-transform: scale(.5);
+      -moz-transform: scale(.5);
+      -ms-transform: scale(.5);
+      -o-transform: scale(.5);
+      transform: scale(.5);
+      transition:transform .6s ease-in-out,background-color .3s;
 
+
+      &.is-center{
+        background-color:#888;
+        transform:scale(1);   //Icon Font
+        &::after{
+          font-family:"iconfont";
+          content:"\e618";
+          line-height: 30px;
+          color: white;
+          -webkit-font-smoothing: antialiased;  //开启字体渲染的灰阶平滑
+          -moz-osx-font-smoothing: grayscale;
+        }
+      }
+
+      &.is-inverse{
+        background-color: #555;
+        transform:rotateY(180deg);
+      }
+    }
+  }
 }
 
